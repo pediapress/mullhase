@@ -1,0 +1,16 @@
+#! /bin/bash -e
+
+. $(dirname $(readlink -f $0))/mh-settings
+
+test -d $MH_ARCHIVE || mkdir -p $MH_ARCHIVE
+test -d $MH_BUILD || mkdir -p $MH_BUILD
+rm -f $MH_BUILD/*.deb
+
+
+cd $MH_BUILD
+
+mh-buildpy
+
+cp -v -n *.deb ${MH_ARCHIVE}
+cd ${MH_ARCHIVE}
+dpkg-scanpackages . /dev/null | gzip -9c >Packages.gz

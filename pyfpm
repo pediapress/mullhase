@@ -1,0 +1,9 @@
+#! /bin/bash
+
+. $(dirname $(readlink -f $0))/mh-settings
+
+PYARGS="--python-bin ${MH_PYTHON} --python-easyinstall ${MH_EASY_INSTALL} --python-pypi $MH_INDEX_URL"
+
+export PP_MAINTAINER=1
+
+exec fpm  $PYARGS -d python --vendor pediapress.com -m pediapress.com -t deb -s python $@
