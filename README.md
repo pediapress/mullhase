@@ -18,7 +18,7 @@ root:
     python-imaging python-lxml python-pygments python-greenlet \
     python-pypdf python-bottle python-pyparsing python-simplejson \
     python-roman libfribidi-dev pkg-config libc-ares-dev libc-ares2 \
-    libev-dev libev4 ccache git
+    libev-dev libev4 ccache git ocaml-nox
 
 The rest of the installation can be done as a normal user.
 
