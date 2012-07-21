@@ -1,17 +1,16 @@
-#! /bin/bash
+#! /bin/bash -e
 
 . $(dirname $(readlink -f $0))/mh-settings
 
 
-export EMBED=0
-export USE_SYSTEM_LIB=1
 
 # -- their stuff
 pyfpm --iteration 0 py
 pyfpm --iteration 0 apipkg
 pyfpm --iteration 0 sqlite3dbm
 pyfpm --iteration 0 odfpy
-pyfpm --iteration 0 -d libfribidi0 pyfribidi
+EMBED=0 USE_SYSTEM_LIB=1 pyfpm --iteration 0 -d libfribidi0 pyfribidi
+EMBED=0 pyfpm --iteration 0 -d libev4 -d libc-ares2 gevent
 
 # -- our stuff
 
@@ -20,8 +19,8 @@ pyfpm --iteration 0 -d python-greenlet -d python-gevent qserve
 pyfpm --iteration 5 -d python-imaging -d python-roman -d python-gevent -d python-odfpy mwlib
 pyfpm --iteration 0 mwlib.ext
 pyfpm --iteration 0 mwlib.rl
-pyfpm --iteration 0 pyzim
+EMBED=1 pyfpm --iteration 0 --replaces python-pyzim --provides python-pyzim -n python-static-pyzim pyzim
+# EMBED=0 pyfpm --iteration 0 pyzim
 pyfpm --iteration 0 mwlib.zim
-pyfpm --iteration 0 -d libev4 -d libc-ares2 gevent
 
 # EMBED=1 pyfpm --iteration 0 --replaces python-gevent --provides python-gevent -n python-static-gevent gevent
