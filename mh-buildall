@@ -9,6 +9,7 @@ rm -f $MH_BUILD/*.deb
 
 cd $MH_BUILD
 
+mh-build-texvc
 mh-buildpy
 
 cp -v -n *.deb ${MH_ARCHIVE}
