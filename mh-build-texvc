@@ -1,0 +1,11 @@
+#! /bin/bash -e
+
+. $(dirname $(readlink -f $0))/mh-settings
+
+
+test -d texvc/.git || git clone https://github.com/pediapress/texvc.git
+root=$(pwd)/pkg-texvc/
+mkdir -p $root/usr/bin
+
+(cd texvc; git pull; make; make install PREFIX=$root/usr)
+fakeroot fpm -s dir -t deb -n schmir-texvc -v 1 -C $root --iteration 0 usr
