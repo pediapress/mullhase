@@ -16,9 +16,9 @@ EMBED=0 pyfpm --iteration 0 -d libev4 -d libc-ares2 gevent
 
 pyfpm --iteration 0 timelib
 pyfpm --iteration 0 -d python-greenlet -d python-gevent qserve
-pyfpm --iteration 5 -d python-imaging -d python-roman -d python-gevent -d python-odfpy mwlib
+pyfpm --iteration 6 -d ploticus -d texlive-latex-recommended -d blahtexml -d dvipng -d imagemagick -d python-lxml -d python-imaging -d python-roman -d python-gevent -d python-odfpy mwlib
 pyfpm --iteration 0 mwlib.ext
-pyfpm --iteration 0 mwlib.rl
+pyfpm --iteration 1 -d pdftk mwlib.rl
 EMBED=1 pyfpm --iteration 0 --replaces python-pyzim --provides python-pyzim -n python-static-pyzim pyzim
 # EMBED=0 pyfpm --iteration 0 pyzim
 pyfpm --iteration 0 mwlib.zim
