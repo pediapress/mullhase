@@ -8,10 +8,12 @@ rm -f $MH_BUILD/*.deb
 
 
 cd $MH_BUILD
+echo "=====> building in $(pwd)"
 
 mh-build-texvc
 mh-build-py
 
+echo "=====> Copying .deb files to ${MH_ARCHIVE}"
 cp -v -n *.deb ${MH_ARCHIVE}
 cd ${MH_ARCHIVE}
 dpkg-scanpackages . /dev/null | gzip -9c >Packages.gz

@@ -2,7 +2,7 @@
 
 : ${MH_ROOT:=~/mh-root}
 : ${MH_ARCHIVE:=${MH_ROOT}/archive}
-: ${MH_BUILD:=${MH_ROOT}/tmp}
+: ${MH_BUILD:=${MH_ROOT}/build}
 
 : ${MH_INDEX_URL:=${PIP_INDEX_URL:-http://pypi.pediapress.com/simple}}
 
