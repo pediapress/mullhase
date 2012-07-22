@@ -43,3 +43,13 @@ Clone the repository:
 
 Also add the above "export PATH=" line to your .bashrc/.profile.
 
+## Building
+
+Run the following command to build debian packages for all available
+package:
+
+	mh-buildall
+
+The result will be copied to `~/mh-root/archive`. This directory can
+be configured via environment variable `MH_ROOT`. Take a look at
+mh-settings for details.
