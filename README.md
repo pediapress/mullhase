@@ -53,3 +53,12 @@ package:
 The result will be copied to `~/mh-root/archive`. This directory can
 be configured via environment variable `MH_ROOT`. Take a look at
 mh-settings for details.
+
+
+## TODO
+
+* mark conflict between schmir-texvc and mediawiki-math-texvc
+* make "EMBED=0 pyfpm pyzim" work
+* find a way to run out testsuites against the installed debian
+  packages
+
